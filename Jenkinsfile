@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Setup') {
+        stage('Ejecutando Init y Plan') {
             steps {
                 script {
                     // Configura las credenciales de AWS para Terraform
@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-                stage('Setup') {
+        stage('Ejecutando Apply o Destroy') {
             steps {
                 script {
                     // Configura las credenciales de AWS para Terraform
