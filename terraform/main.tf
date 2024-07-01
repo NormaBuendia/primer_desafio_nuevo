@@ -71,10 +71,11 @@ resource "aws_instance" "instance_nueva" {
  user_data = <<-EOF
                 #!/bin/bash
                 sudo yum update -y
+                sudo cp ${path.module}/index.html /tmp/index.html    
                 sudo amazon-linux-extras install -y nginx1
                 sudo systemctl start nginx                        
-                sudo systemctl enable nginx                       
-                sudo cp /var/www/html/index.html /var/www/html/
+                sudo systemctl enable nginx                
+                sudo mv /tmp/index.html /usr/share/nginx/html/index.html
                 sudo systemctl restart nginx                     
                 EOF
 }
