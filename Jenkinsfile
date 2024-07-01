@@ -2,10 +2,6 @@ pipeline {
     agent any
 
     environment {
-
-        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'terraform', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) 
-    // some block
-
 // Define las variables de entorno para las credenciales de AWS
         AWS_ACCESS_KEY_ID = credentials('awscredenciales_id')
         AWS_SECRET_ACCESS_KEY = credentials('awscredenciales_key_id')
