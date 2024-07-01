@@ -3,9 +3,8 @@ pipeline {
 
     environment {
 // Define las variables de entorno para las credenciales de AWS
-        AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
-
+        AWS_ACCESS_KEY_ID = credentials('awscredenciales')
+        AWS_SECRET_ACCESS_KEY = credentials('awscredenciales')
         AWS_KEY_SSH = credentials('clave')
        
     }
