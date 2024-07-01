@@ -45,6 +45,7 @@ pipeline {
                         }
                         else if(params.action == 'destroy') {
                            // elimina
+                        print '########## Ejecutando destroy... ##########'
                         sh 'terraform destroy -auto-approve terraform/'  
                         }   
                         else {
