@@ -76,7 +76,7 @@ resource "aws_instance" "instance_nueva" {
                 sudo systemctl start nginx                        
                 sudo systemctl enable nginx                
                 sudo mv /tmp/index.html /usr/share/nginx/html/index.html
-                sudo chown nginx:nginx /usr/share/nginx/html/index.html
+                sudo chown nginx:nginx index.html
                 sudo systemctl restart nginx                     
                 EOF
 }
