@@ -74,7 +74,8 @@ resource "aws_instance" "instance_nueva" {
                 sudo amazon-linux-extras install -y nginx1
                 sudo systemctl start nginx                        
                 sudo systemctl enable nginx                       
-                sudo cp /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html /usr/share/nginx/html/index.html  
+                sudo cp /terraform/index.html /var/www/html/
                 sudo systemctl restart nginx                     
                 EOF
 }
+
