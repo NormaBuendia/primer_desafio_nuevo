@@ -72,7 +72,10 @@ resource "aws_instance" "instance_nueva" {
                 #!/bin/bash
                 sudo apt-get update
                 sudo apt-get install -y nginx
-                echo " Hola Norma " > /var/www/html/index.nginx-debian.html
+                sudo systemctl start nginx                        
+                sudo systemctl enable nginx                       
+                sudo mv /tmp/index.html /usr/share/nginx/html/index.html  
+                sudo systemctl restart nginx                     
+        
                 EOF
-
 }
