@@ -71,7 +71,7 @@ resource "aws_instance" "instance_nueva" {
  user_data = <<-EOF
                 #!/bin/bash
                 sudo yum update -y
-                sudo cp ${path.module}/index.html /tmp/index.html    
+                sudo cp /terraform/index.html /tmp/index.html 
                 sudo amazon-linux-extras install -y nginx1
                 sudo systemctl start nginx                        
                 sudo systemctl enable nginx                
