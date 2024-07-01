@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-// Define las variables de entorno para las credenciales de AWS
-        AWS_ACCESS_KEY_ID = credentials('awscredenciales_id')
-        AWS_SECRET_ACCESS_KEY = credentials('awscredenciales_key_id')
-        AWS_KEY_SSH = credentials('clave')
-       
-    }
-
     stages {
         stage('Checkout') {
             steps {
