@@ -58,7 +58,7 @@ resource "aws_instance" "instance_nueva" {
   ami           = "ami-0f226ae5ce4b11922"  
   instance_type = "t2.micro" 
   // Especifica el nombre de tu clave SSH 
-  key_name      = "awsnueva"             
+  key_name      = "terraform"             
 
   # Asignación del security group creado arriba
   vpc_security_group_ids = [aws_security_group.security_group.id]
