@@ -78,7 +78,7 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl enable nginx
 
             # Copiar index.html a /tmp
-            sudo cp /terraform/index.html /tmp/index.html 
+            sudo cp /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html /tmp/index.html 
 
             # Mover index.html a la carpeta de Nginx y ajustar permisos
             sudo mv /tmp/index.html /usr/share/nginx/html/index.html
