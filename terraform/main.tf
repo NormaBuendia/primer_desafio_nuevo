@@ -85,15 +85,16 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl start nginx
             sudo systemctl enable nginx
 
-            # Verificar la ubicación actual y el contenido de /terraform/
-            ls -l terraform
+            # Verificar el directorio actual y el contenido de /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/
+            echo "Directorio actual: $(pwd)"
+            ls -l /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/
 
-            # Mensaje de depuración
-            echo "Copiando index.html desde terraform/ a /tmp/"
+            # Verificar la existencia del archivo index.html
+            if [ -f "/home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html" ]; then
 
-            # Copiar index.html a /tmp (verifica que /terraform/index.html existe y es accesible)
-            sudo cp terraform/index.html /tmp/index.html 
-
+            # Copiar index.html a /tmp
+            sudo cp /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html /tmp/index.html
+    
             # Mover index.html a la carpeta de Nginx y ajustar permisos
             sudo mv /tmp/index.html /usr/share/nginx/html/index.html
             sudo chown nginx:nginx /usr/share/nginx/html/index.html
@@ -101,6 +102,11 @@ resource "aws_instance" "instance_nueva" {
 
             # Reiniciar Nginx para aplicar los cambios
             sudo systemctl restart nginx
+
+            else
+            echo "ERROR: El archivo /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html no existe o no es accesible."
+            exit 1
+            fi
             EOF
 
 }
