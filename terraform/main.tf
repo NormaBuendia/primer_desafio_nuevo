@@ -75,6 +75,11 @@ resource "aws_instance" "instance_nueva" {
     Name = "instance_nueva"
   }	
 
+  provisioner "file" {
+	    source      = "${path.module}/index.html"  // Ruta al archivo index.html en tu máquina local
+	    destination = "/tmp/index.html"  // Ruta remota donde deseas copiar el archivo
+	}
+
  user_data = <<-EOF
 
             #!/bin/bash
@@ -85,28 +90,12 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl start nginx
             sudo systemctl enable nginx
 
-            # Verificar el directorio actual y el contenido de /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/
-            echo "Directorio actual: $(pwd)"
-            ls -l /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/
-
-            # Verificar la existencia del archivo index.html
-            if [ -f "/home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html" ]; then
-
-            # Copiar index.html a /tmp
-            sudo cp /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html /tmp/index.html
-    
             # Mover index.html a la carpeta de Nginx y ajustar permisos
             sudo mv /tmp/index.html /usr/share/nginx/html/index.html
-            sudo chown nginx:nginx /usr/share/nginx/html/index.html
-            sudo chmod 644 /usr/share/nginx/html/index.html
 
             # Reiniciar Nginx para aplicar los cambios
             sudo systemctl restart nginx
 
-            else
-            echo "ERROR: El archivo /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html no existe o no es accesible."
-            exit 1
-            fi
             EOF
 
 }
