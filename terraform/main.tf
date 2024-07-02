@@ -73,12 +73,12 @@ resource "aws_instance" "instance_nueva" {
             sudo yum update -y
             sudo amazon-linux-extras install -y nginx1
 
-            # Copiar index.html a /tmp
-            sudo cp /terraform/index.html /tmp/index.html 
-
             # Iniciar y habilitar Nginx
             sudo systemctl start nginx
             sudo systemctl enable nginx
+
+            # Copiar index.html a /tmp
+            sudo cp /terraform/index.html /tmp/index.html 
 
             # Mover index.html a la carpeta de Nginx y ajustar permisos
             sudo mv /tmp/index.html /usr/share/nginx/html/index.html
