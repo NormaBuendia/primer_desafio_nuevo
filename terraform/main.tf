@@ -82,10 +82,10 @@ resource "aws_instance" "instance_nueva" {
             ls -l /terraform
 
             # Mensaje de depuración
-            echo "Copiando index.html desde /terraform/ a /tmp/"
+            echo "Copiando index.html desde terraform/ a /tmp/"
 
             # Copiar index.html a /tmp (verifica que /terraform/index.html existe y es accesible)
-            sudo cp /terraform/index.html /tmp/index.html 
+            sudo cp terraform/index.html /tmp/index.html 
 
             # Mover index.html a la carpeta de Nginx y ajustar permisos
             sudo mv /tmp/index.html /usr/share/nginx/html/index.html
