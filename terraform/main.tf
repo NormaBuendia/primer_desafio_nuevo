@@ -86,7 +86,7 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl enable nginx
 
             # Verificar la ubicación actual y el contenido de /terraform/
-            ls -l /terraform
+            ls -l terraform
 
             # Mensaje de depuración
             echo "Copiando index.html desde terraform/ a /tmp/"
