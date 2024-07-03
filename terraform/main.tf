@@ -68,11 +68,6 @@ resource "aws_instance" "instance_nueva" {
     Name = "instance_nueva"
   }	
 
-  provisioner "file" {
-	    source      = "${path.module}/index.html"  // Ruta al archivo index.html en tu máquina local
-	    destination = "/usr/share/nginx/html/index.html"  // Ruta remota donde deseas copiar el archivo
-	}
-
  user_data = <<-EOF
 
             #!/bin/bash
@@ -83,8 +78,9 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl start nginx
             sudo systemctl enable nginx
 
-            # cambia el archivo de directorio
-            sudo mv /tmp/index.html /usr/share/nginx/html/index.html  
+            # copiar index.html
+            sudo cp /home/ec2-user/index.html /usr/share/nginx/html/index.html  
+            sudo chown nginx:nginx /usr/share/nginx/html/index.html
 
             # Reiniciar Nginx para aplicar los cambios
             sudo systemctl restart nginx
