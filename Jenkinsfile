@@ -5,11 +5,6 @@ pipeline {
         choice(name: 'action', choices: ['apply', 'destroy'], description: 'Seleccione la acción a realizar.')
     }
 
-    environment {
-        // Define las variables de entorno para las credenciales de AWS
-        AWS_KEY_SSH = credentials('awsnueva') 
-    }
-
     stages {
         stage('Checkout') {
             steps {
