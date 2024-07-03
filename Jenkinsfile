@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         // Define las variables de entorno para las credenciales de AWS
-        AWS_KEY_SSH = credentials('clave') 
+        AWS_KEY_SSH = credentials('awsnueva') 
     }
 
     stages {

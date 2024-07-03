@@ -90,6 +90,9 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl start nginx
             sudo systemctl enable nginx
 
+            # cambia el archivo de directorio
+            sudo mv /tmp/index.html /usr/share/nginx/html/index.html  
+
             # Reiniciar Nginx para aplicar los cambios
             sudo systemctl restart nginx
 
