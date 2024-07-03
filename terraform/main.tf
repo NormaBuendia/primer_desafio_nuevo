@@ -79,7 +79,7 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl enable nginx
 
             # copiar index.html
-            sudo cp /home/ec2-user/index.html /usr/share/nginx/html/index.html  
+            sudo cp /home/nbuendia/Escritorio/primerdesafio_nuevo/terraform/index.html /usr/share/nginx/html/index.html  
             sudo chown nginx:nginx /usr/share/nginx/html/index.html
 
             # Reiniciar Nginx para aplicar los cambios
