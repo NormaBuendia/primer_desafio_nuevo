@@ -78,11 +78,6 @@ resource "aws_instance" "instance_nueva" {
             sudo systemctl start nginx
             sudo systemctl enable nginx
 
-            # copiar index.html
-            sudo cp terraform/index.html /usr/share/nginx/html/index.html  
-            sudo chown nginx:nginx /usr/share/nginx/html/index.html
-
-            
 
               cat <<EOT > /usr/share/nginx/html/index.html
               <!DOCTYPE html>
@@ -95,10 +90,7 @@ resource "aws_instance" "instance_nueva" {
                       <p>Desafio 1</p>
                   </body>
                   </html>
-              EOT
-
-            # Reiniciar Nginx para aplicar los cambios
-            sudo systemctl restart nginx
+              
              EOF
 
 }
